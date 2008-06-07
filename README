@@ -1,0 +1,36 @@
+While I haven't had a chance to clean up the code, folks have asked for it, 
+so I'm making my Perforce implementation for CruiseControl available. 
+There are some important notes:
+
+* You need to set up your project manually, you can't do an "add" via CruiseControl.
+* Some work needs to be done on the text retrieval for checkin messages, and how 
+that's displayed on the CC.rb results pages.
+* I haven't used this since August 2007, so cannot vouch for whether it works with
+current versions of Cruisecontrol.rb.
+
+Licensed under the MIT license.  I have not yet submitted it to the CC.rb folks, 
+as I hadn't had time to clean it up yet. So, if you dial it in better, please do 
+submit it to them, or send me a pull request, and I'll submit it, etc.
+
+To install/use it, ut the perforce.rb file into your cruisecontrol/app/models directory.
+
+Manually setup your project:
+* Create a directory under the cruisecontrol/projects directory.
+* Place a cruise_config.rb file in it. It should contain something like the following 
+in order to use Perforce:
+ 
+  Project.configure do |project|
+    # Use Perforce for source control
+    project.source_control = Perforce.new(
+      :port => 'your.perforce.server:1666',
+      :clientspec => 'clientspec-for-cruisecontrol',
+      :user => 'buildusername',
+      :password => 'builduserpassword',
+      :path => '//depot/path/to/your/rails/app/...')
+  end
+  
+* Sync your code once.
+* Fire up CruiseControl, and let the games begin.
+
+Usual disclaimer: I take no responsibility for your systems, code, etc. Read the code, 
+test it out, backup your systems, etc.
