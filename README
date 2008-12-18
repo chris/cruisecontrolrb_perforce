@@ -1,4 +1,6 @@
-NOTE: I no longer maintain this.  My understanding is that for the latest and greatest Perforce integration for Cruise Control, you should check out Ben Curren's version here:
+NOTE: I no longer maintain this.  My understanding is that for the latest and 
+greatest Perforce integration for Cruise Control, you should check out Ben 
+Curren's version here:
 http://github.com/bcurren/cruisecontrolrb_perforce/tree/master
 
 While I haven't had a chance to clean up the code, folks have asked for it, 
